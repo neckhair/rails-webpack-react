@@ -29,7 +29,23 @@ var config = {
   },
 
   resolve: {
-    root: path.join(__dirname, '..', 'webpack')
+    root: path.join(__dirname, '..', 'webpack'),
+    extensions: ["", ".js", ".jsx", ".es6"],
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel?presets[]=react,presets[]=es2015"
+      },
+      {
+        test: /\.es6$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel?presets[]=es2015"
+      },
+    ],
   },
 
   plugins: [
