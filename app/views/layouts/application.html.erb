@@ -4,11 +4,14 @@
     <title>PackApp</title>
     <%= csrf_meta_tags %>
 
-    <%= javascript_include_tag *webpack_asset_paths('application', extension: 'js') %>
     <%= stylesheet_link_tag *webpack_asset_paths('application', extension: 'css') %>
   </head>
 
   <body>
+    <div id="my-component"></div>
+
     <%= yield %>
+
+    <%= javascript_include_tag *webpack_asset_paths('application', extension: 'js') %>
   </body>
 </html>
